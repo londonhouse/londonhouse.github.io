@@ -188,27 +188,100 @@ body {
     letter-spacing: -0.2px;
 }
 
-.tech-list {
-    list-style: none;
+/* Accordion Styles */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.tech-list li {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    padding: 0.4rem 0;
+.accordion-item {
     border-bottom: 1px solid var(--border-color);
 }
 
-.tech-list li:last-child {
+.accordion-item:last-child {
     border-bottom: none;
 }
 
-.tech-list li::before {
-    content: '▸';
+.accordion-header {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0.75rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+.accordion-header:hover {
     color: var(--accent-primary);
-    margin-right: var(--spacing-xs);
-    font-size: 0.9rem;
+}
+
+.accordion-header span:first-child {
+    flex: 1;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
     font-weight: bold;
+    color: var(--accent-primary);
+    transition: transform 0.3s ease;
+    margin-left: 0.5rem;
+    line-height: 1;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(90deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    padding-bottom: 0.75rem;
+}
+
+.project-links {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.project-links li {
+    padding: 0.35rem 0;
+    position: relative;
+}
+
+.project-links li::before {
+    content: '→';
+    color: var(--accent-primary);
+    position: absolute;
+    left: -1rem;
+    font-weight: bold;
+}
+
+.project-links a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.project-links a:hover {
+    color: var(--accent-tertiary);
+    text-decoration: underline;
+    transform: translateX(3px);
 }
 
 /* Projects */
@@ -415,6 +488,77 @@ body {
     font-weight: bold;
 }
 
+/* Articles & Publications */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.article-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    background: var(--secondary-bg);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.article-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.article-icon {
+    flex-shrink: 0;
+    color: #000000;
+    transition: transform 0.3s ease;
+}
+
+.article-icon.linkedin {
+    color: #0077B5;
+}
+
+.article-card:hover .article-icon {
+    transform: scale(1.1);
+}
+
+.article-info {
+    flex: 1;
+}
+
+.article-title {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.article-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.article-link-text {
+    color: var(--accent-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    display: inline-block;
+    transition: color 0.2s ease;
+}
+
+.article-card:hover .article-link-text {
+    color: var(--accent-tertiary);
+}
+
 /* Footer */
 .footer {
     margin-top: var(--spacing-xxl);
@@ -475,6 +619,15 @@ body {
         grid-template-columns: 1fr;
     }
     
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
     .section {
         margin-bottom: var(--spacing-xl);
     }
@@ -495,6 +648,10 @@ body {
     }
     
     .section-content {
+        padding: var(--spacing-md);
+    }
+    
+    .article-card {
         padding: var(--spacing-md);
     }
 }
