@@ -644,6 +644,80 @@ body {
     color: var(--accent-tertiary);
 }
 
+/* Profile Summary FAQ link */
+.profile-faq-link {
+    margin-top: var(--spacing-md);
+}
+
+.profile-faq-link a {
+    color: var(--accent-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.profile-faq-link a:hover {
+    color: var(--accent-tertiary);
+    text-decoration: underline;
+}
+
+/* FAQ Section */
+.faq .section-title {
+    text-align: center;
+    border-bottom: none;
+}
+
+.faq .section-content {
+    width: 60%;
+    margin: 0 auto;
+    border-left: 4px solid var(--accent-primary);
+}
+
+.faq-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.faq-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.faq-list li {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    padding: 0.65rem var(--spacing-md);
+    padding-left: 2rem;
+    position: relative;
+    background: var(--secondary-bg);
+    border-radius: 4px;
+    border-left: 3px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.faq-list li::before {
+    content: '→';
+    color: var(--accent-primary);
+    position: absolute;
+    left: 0.65rem;
+    font-weight: bold;
+}
+
+.faq-list li:hover {
+    border-left-color: var(--accent-primary);
+    background: var(--hover-bg);
+    color: var(--text-primary);
+}
+
 /* Footer */
 .footer {
     margin-top: var(--spacing-xxl);
