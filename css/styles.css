@@ -47,6 +47,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -94,6 +100,13 @@ body {
     font-size: 1.25rem;
     color: var(--accent-primary);
     font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.org-affiliation {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -663,6 +676,100 @@ body {
     text-decoration: underline;
 }
 
+/* Operating Principles */
+.principles-intro {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.principle-card {
+    background: var(--secondary-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    padding: var(--spacing-md);
+}
+
+.principle-title {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.2px;
+}
+
+.principle-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Operating Capabilities intro */
+.expertise-intro {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Working Papers */
+.working-papers {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.wp-status {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.wp-intro {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.wp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.wp-tag {
+    background: var(--card-bg);
+    color: var(--text-muted);
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    border: 1px dashed var(--border-color);
+}
+
+/* London House Group Bridge */
+.lhg-bridge .section-content {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    border-left: 4px solid var(--accent-primary);
+    background: var(--secondary-bg);
+}
+
+.lhg-bridge .section-content p + p {
+    margin-top: var(--spacing-sm);
+}
+
 /* FAQ Section */
 .faq .section-title {
     text-align: center;
@@ -673,6 +780,14 @@ body {
     width: 60%;
     margin: 0 auto;
     border-left: 4px solid var(--accent-primary);
+}
+
+.engagement-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.engagement-group:last-child {
+    margin-bottom: 0;
 }
 
 .faq-subtitle {
@@ -733,6 +848,14 @@ body {
     margin-bottom: var(--spacing-sm);
 }
 
+.footer-org {
+    font-family: var(--font-sans);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+}
+
 .footer-contact a {
     color: var(--accent-primary);
     text-decoration: none;
@@ -766,21 +889,27 @@ body {
         font-size: 2rem;
     }
     
-    .expertise-grid {
+    .expertise-grid,
+    .principles-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .role-header {
         flex-direction: column;
     }
-    
+
     .cert-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .articles-grid,
     .latest-articles-grid {
         grid-template-columns: 1fr;
+    }
+
+    .articles .section-content,
+    .faq .section-content {
+        width: 100%;
     }
 
     .section {
