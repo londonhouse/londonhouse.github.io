@@ -13,7 +13,8 @@
     <meta property="og:url" content="https://londonhouse.github.io/">
     <meta property="og:image" content="https://londonhouse.github.io/img/profile.jpg">
     <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/styles.css?v=3">
+    <link rel="alternate" type="application/rss+xml" title="Articles by Christopher B. London" href="https://londonhouse.github.io/articles/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -44,6 +45,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- Site Navigation -->
+        <nav class="site-nav" aria-label="Site">
+            <a href="/" aria-current="page">Home</a>
+            <a href="/articles/">Articles</a>
+            <a href="#about">About</a>
+        </nav>
+
         <!-- Header Section -->
         <header class="header">
             <div class="header-content">
@@ -64,7 +72,7 @@
         </header>
 
         <!-- Profile Summary -->
-        <section class="section profile-summary">
+        <section class="section profile-summary" id="about">
             <div class="section-content">
                 <p>I'm an experienced cloud and AI infrastructure consultant who helps organizations move beyond one-off technical fixes toward durable, repeatable platforms. With a background spanning AWS, DevOps, machine learning infrastructure, and infrastructure-as-code, I translate complex requirements into practical systems — connecting architecture decisions to day-to-day operations so teams can actually maintain what gets built. My approach favors automation, clear documentation, and lightweight governance over one-off heroics, reducing the operational dependency that stalls platforms over time. Whether helping a team get started or refining a mature environment, the goal is the same: convert technical capability into something the organization can own and extend long after the engagement ends.</p>
                 <p class="profile-faq-link"><a href="#faq">What can you help me with? →</a></p>
@@ -419,6 +427,12 @@
         <section class="section articles">
             <h2 class="section-title">Research & Publications</h2>
             <div class="section-content">
+                <div class="site-articles-callout">
+                    <h3 class="latest-articles-title">Published on This Site</h3>
+                    <p class="wp-intro">Articles are published here first as the original source, then syndicated to Medium, LinkedIn, and elsewhere.</p>
+                    <p class="site-articles-cta"><a href="/articles/">Browse all articles →</a></p>
+                </div>
+
                 <h3 class="latest-articles-title">Technical Articles</h3>
                 <div class="latest-articles-grid">
                     <a href="https://medium.com/@cloudybusiness1/the-backbone-of-cloud-platforms-demystifying-amazon-s3-e1a974ddb8e8" target="_blank" rel="noopener" class="latest-article-card">

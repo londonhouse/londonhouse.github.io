@@ -1,0 +1,45 @@
+title: Christopher B. London
+description: >-
+  Cloud and AI infrastructure consulting, platform modernization, and technical
+  writing on data engineering, DataOps, and cloud architecture.
+url: https://londonhouse.github.io
+author:
+  name: Christopher B. London
+  email: chrislondon@londonhousegroup.co
+
+social:
+  name: Christopher B. London
+  links:
+    - https://www.linkedin.com/in/christopher-london-aa78aa2b
+    - https://medium.com/@cloudybusiness1
+
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+feed:
+  collections:
+    articles:
+      path: /articles/feed.xml
+
+exclude:
+  - README.md
+  - ARTICLE-TEMPLATE.md
+  - .gitignore
