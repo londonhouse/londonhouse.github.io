@@ -1,11 +1,11 @@
 ---
 layout: default
 title: Articles
-description: Technical writing on data engineering, DataOps, cloud architecture, and platform engineering by Christopher B. London.
+description: Technical writing on ML/AI platforms, DataOps, and information solutions by Christopher B. London.
 ---
 <header class="page-header">
     <h1 class="page-title">Articles</h1>
-    <p class="page-intro">Technical writing on data engineering, DataOps, cloud architecture, and the platform practices behind them. Published here first, then syndicated.</p>
+    <p class="page-intro">Technical writing on ML/AI platforms, DataOps, and information solutions: how to build, secure, and run the systems that turn data into decisions. Published here first, then syndicated.</p>
 </header>
 
 {%- assign items = site.articles | sort: 'date' | reverse %}
@@ -15,8 +15,8 @@ description: Technical writing on data engineering, DataOps, cloud architecture,
     <a class="latest-article-card" href="{{ item.url | relative_url }}">
         <span class="latest-article-date">{{ item.date | date: "%b %-d, %Y" }}</span>
         <h2 class="latest-article-title">{{ item.title }}</h2>
-        {%- if item.summary %}
-        <p class="latest-article-desc">{{ item.summary }}</p>
+        {%- if item.description %}
+        <p class="latest-article-desc">{{ item.description }}</p>
         {%- endif %}
         <span class="latest-article-link">Read article &rarr;</span>
     </a>

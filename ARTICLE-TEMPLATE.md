@@ -4,7 +4,7 @@ title: "Your Article Title"
 date: 2026-01-01
 
 # Recommended — shown on the article index card and in social/search previews
-summary: "One or two sentences describing the article."
+description: "One or two sentences describing the article."
 tags: [Data Engineering, DataOps, AWS]
 
 # Optional — links out to syndicated copies, rendered in the article footer

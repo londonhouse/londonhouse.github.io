@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1a5490">
+    {%- if page.seo_title %}
+    <title>{{ page.seo_title | escape }}</title>
+    {%- seo title=false -%}
+    {%- else %}
     {%- seo -%}
+    {%- endif %}
     <link rel="stylesheet" href="{{ '/css/styles.css?v=4' | relative_url }}">
     <link rel="stylesheet" href="{{ '/css/article.css?v=1' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">

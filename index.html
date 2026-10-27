@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -387,13 +389,6 @@
                         <div class="project-item">
                             <span class="project-bullet">▸</span>
                             <div class="project-details">
-                                <strong>Snowflake Multi-Regional Architecture</strong>
-                                <p>Multi-regional account structure with Okta IDP integration, establishing an organizational pattern for onboarding additional accounts.</p>
-                            </div>
-                        </div>
-                        <div class="project-item">
-                            <span class="project-bullet">▸</span>
-                            <div class="project-details">
                                 <strong>Data Governance Platform</strong>
                                 <p>Data obfuscation paired with a DataHub catalog implementation, giving teams a shared reference for data lineage and access policy.</p>
                             </div>
@@ -402,27 +397,41 @@
                 </div>
 
                 <div class="project-category">
-                    <h3 class="category-title">DevOps Leadership</h3>
+                    <h3 class="category-title">Data Platform &amp; Solutioning</h3>
                     <div class="project-list">
                         <div class="project-item">
                             <span class="project-bullet">▸</span>
                             <div class="project-details">
-                                <strong>Multi-Regional HashiCorp Vault</strong>
-                                <p>Secrets management infrastructure standardized across multiple regions, replacing ad hoc credential handling with a single operating pattern.</p>
+                                <strong>Enterprise Snowflake Construction</strong>
+                                <p>Multi-regional account structure with Okta IDP integration, built as an organizational pattern for onboarding new accounts, teams, and regions.</p>
                             </div>
                         </div>
                         <div class="project-item">
                             <span class="project-bullet">▸</span>
                             <div class="project-details">
-                                <strong>Performance Monitoring Platform</strong>
-                                <p>Multi-regional EC2 performance baselines built on the TICK Stack, forming a reusable observability baseline for new environments.</p>
+                                <strong>S3 &amp; Snowflake Data Lake</strong>
+                                <p>Data lake construction on Amazon S3 with Snowflake as the analytical layer, designed for secure, cost-efficient access across teams.</p>
                             </div>
                         </div>
                         <div class="project-item">
                             <span class="project-bullet">▸</span>
                             <div class="project-details">
-                                <strong>Secrets-as-a-Service</strong>
-                                <p>Snowflake-to-Vault integration delivered as a centralized secrets service usable by additional platforms beyond the initial rollout.</p>
+                                <strong>Storage Integration &amp; Stage Configuration</strong>
+                                <p>Snowflake storage integrations backed by scoped IAM roles, with external stages configured as a repeatable pattern so new sources connect without shared credentials.</p>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-bullet">▸</span>
+                            <div class="project-details">
+                                <strong>Ingestion Automation</strong>
+                                <p>Automated loading from external stages into Snowflake, replacing manual loads with a consistent ingestion path for each new data source.</p>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-bullet">▸</span>
+                            <div class="project-details">
+                                <strong>Platform Metrics &amp; Dashboards</strong>
+                                <p>Prometheus metrics collection and Grafana dashboards built into the platform, giving the teams that run on it visibility into resource usage and workload health.</p>
                             </div>
                         </div>
                     </div>
@@ -437,6 +446,19 @@
                 <div class="site-articles-callout">
                     <h3 class="latest-articles-title">Published on This Site</h3>
                     <p class="wp-intro">Articles are published here first as the original source, then syndicated to Medium, LinkedIn, and elsewhere.</p>
+                    <div class="latest-articles-grid">
+                        {%- assign site_articles = site.articles | sort: 'date' | reverse %}
+                        {%- for item in site_articles limit: 3 %}
+                        <a href="{{ item.url | relative_url }}" class="latest-article-card">
+                            <span class="latest-article-date">{{ item.date | date: "%b %-d, %Y" }}</span>
+                            <h4 class="latest-article-title">{{ item.title }}</h4>
+                            {%- if item.description %}
+                            <p class="latest-article-desc">{{ item.description }}</p>
+                            {%- endif %}
+                            <span class="latest-article-link">Read article →</span>
+                        </a>
+                        {%- endfor %}
+                    </div>
                     <p class="site-articles-cta"><a href="/articles/">Browse all articles →</a></p>
                 </div>
 
@@ -584,23 +606,23 @@
                 <div class="engagement-group">
                     <h3 class="faq-subtitle">Build</h3>
                     <ul class="faq-list">
-                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Cloud%20%26%20Infrastructure%20Automation">Cloud &amp; Infrastructure Automation</a></li>
-                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Data%20%26%20ML%20Platform%20Engineering">Data &amp; ML Platform Engineering</a></li>
+                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Cloud%20%26%20Infrastructure%20Automation" target="_blank" rel="noopener">Cloud &amp; Infrastructure Automation</a></li>
+                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Data%20%26%20ML%20Platform%20Engineering" target="_blank" rel="noopener">Data &amp; ML Platform Engineering</a></li>
                     </ul>
                 </div>
                 <div class="engagement-group">
                     <h3 class="faq-subtitle">Modernize</h3>
                     <ul class="faq-list">
-                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20AWS%20Platform%20Modernization">AWS Platform Modernization</a></li>
-                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Data%20Platform%20Modernization">Data Platform Modernization</a></li>
-                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20AI%20Readiness%20%26%20Operationalization">AI Readiness &amp; Operationalization</a></li>
+                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20AWS%20Platform%20Modernization" target="_blank" rel="noopener">AWS Platform Modernization</a></li>
+                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Data%20Platform%20Modernization" target="_blank" rel="noopener">Data Platform Modernization</a></li>
+                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20AI%20Readiness%20%26%20Operationalization" target="_blank" rel="noopener">AI Readiness &amp; Operationalization</a></li>
                     </ul>
                 </div>
                 <div class="engagement-group">
                     <h3 class="faq-subtitle">Scale</h3>
                     <ul class="faq-list">
-                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Cloud%20Architecture%20Reviews">Cloud Architecture Reviews</a></li>
-                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Well-Architected%20Reviews">Well-Architected Reviews</a></li>
+                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Cloud%20Architecture%20Reviews" target="_blank" rel="noopener">Cloud Architecture Reviews</a></li>
+                        <li><a href="mailto:support@londonhousegroup.co?subject=Inquiry%3A%20Well-Architected%20Reviews" target="_blank" rel="noopener">Well-Architected Reviews</a></li>
                     </ul>
                 </div>
             </div>

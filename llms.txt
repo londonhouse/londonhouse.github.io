@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# {{ site.author.name }}
+
+> {{ site.description }}
+
+{{ site.author.name }} is a cloud and ML platform consultant at London House Group, working on ML/AI platforms, DataOps, data lakes, and cloud infrastructure on AWS and Snowflake.
+
+## Articles
+{% assign items = site.articles | sort: 'date' | reverse %}{% for item in items %}
+- [{{ item.title }}]({{ item.url | absolute_url }}){% if item.description %}: {{ item.description }}{% endif %}{% endfor %}
+
+## About
+
+- [Profile and selected platform work]({{ '/' | absolute_url }})
+- [All articles]({{ '/articles/' | absolute_url }})
+- [Article feed (Atom)]({{ '/articles/feed.xml' | absolute_url }})

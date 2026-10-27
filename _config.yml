@@ -6,6 +6,8 @@ url: https://londonhouse.github.io
 author:
   name: Christopher B. London
   email: chrislondon@londonhousegroup.co
+  url: https://londonhouse.github.io/
+  linkedin: https://www.linkedin.com/in/christopher-london-aa78aa2b
 
 social:
   name: Christopher B. London
@@ -33,6 +35,7 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 feed:
   collections:
@@ -43,3 +46,5 @@ exclude:
   - README.md
   - ARTICLE-TEMPLATE.md
   - .gitignore
+  - scratch
+  - drafts

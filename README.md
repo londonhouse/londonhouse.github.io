@@ -12,7 +12,7 @@ runs on this repo. No local tooling or build step is required.
    cp ARTICLE-TEMPLATE.md _articles/my-article-slug.md
    ```
 
-2. Fill in the front matter — `title` and `date` are required; `summary` and `tags`
+2. Fill in the front matter — `title` and `date` are required; `description` and `tags`
    are recommended. All fields are documented in `ARTICLE-TEMPLATE.md`.
 
 3. Write the body in Markdown. Put images and diagrams in `assets/images/` or
@@ -31,6 +31,12 @@ runs on this repo. No local tooling or build step is required.
 Pages rebuilds automatically (~1 minute). The article then appears at
 `/articles/my-article-slug/`, is listed on `/articles/`, and is included in
 `/articles/feed.xml`.
+
+### Drafts
+
+Work-in-progress articles live in `drafts/`. The folder is excluded from the Jekyll
+build (`_config.yml`) and from git (`.gitignore`), so nothing in it is rendered or
+pushed. When a draft is ready, move it into `_articles/` and follow the steps above.
 
 ### Syndication
 

@@ -1,0 +1,28 @@
+---
+layout: null
+permalink: /robots.txt
+sitemap: false
+---
+# Search engines and AI crawlers are welcome to index this site.
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}

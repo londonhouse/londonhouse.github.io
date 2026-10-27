@@ -1,7 +1,8 @@
 ---
+published: false
 title: "Your Article Title"
 date: 2026-09-30
-summary: "One or two sentences describing the article. This appears on the article index card and in social previews."
+description: "One or two sentences describing the article. This appears on the article index card and in social previews."
 tags: [Data Engineering, Platform Engineering]
 ---
 

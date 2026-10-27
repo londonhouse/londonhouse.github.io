@@ -273,6 +273,17 @@
     text-decoration: underline;
 }
 
+.article-author {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-author a {
+    font-weight: 600;
+}
+
 .article-back {
     margin-top: var(--spacing-md) !important;
 }
