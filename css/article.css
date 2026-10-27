@@ -1,0 +1,308 @@
+/* Article pages and article index. Depends on the tokens in styles.css. */
+
+/* Page header (article index and other non-home pages) */
+.page-header {
+    border-bottom: 3px solid var(--border-accent);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.page-title {
+    font-family: var(--font-sans);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.page-intro {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 70ch;
+}
+
+/* Article index listing */
+.article-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.article-list .latest-article-title {
+    font-size: 1.15rem;
+}
+
+.article-list-empty {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+}
+
+/* Single article */
+.article {
+    max-width: 74ch;
+    margin: 0 auto;
+}
+
+.article-header {
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--border-accent);
+}
+
+.article-meta {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.article-title-main {
+    font-family: var(--font-sans);
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-summary {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+}
+
+/* Rendered Markdown body */
+.article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.article-body > * + * {
+    margin-top: var(--spacing-sm);
+}
+
+.article-body h2 {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-tertiary);
+    letter-spacing: -0.3px;
+    margin-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.article-body h3 {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-top: var(--spacing-lg);
+}
+
+.article-body h4 {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--spacing-md);
+}
+
+.article-body a {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+}
+
+.article-body a:hover {
+    color: var(--accent-tertiary);
+}
+
+.article-body strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.article-body ul,
+.article-body ol {
+    padding-left: var(--spacing-md);
+}
+
+.article-body li + li {
+    margin-top: 0.35rem;
+}
+
+.article-body li::marker {
+    color: var(--accent-primary);
+}
+
+.article-body blockquote {
+    background: var(--secondary-bg);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 0 6px 6px 0;
+    padding: var(--spacing-md);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.article-body blockquote > * + * {
+    margin-top: var(--spacing-sm);
+}
+
+/* Code */
+.article-body code {
+    font-family: var(--font-mono);
+    font-size: 0.87em;
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+}
+
+.article-body pre {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-primary);
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    line-height: 1.6;
+}
+
+.article-body pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+.article-body .highlight {
+    background: none;
+}
+
+/* Tables */
+.article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+}
+
+.article-body th,
+.article-body td {
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+}
+
+.article-body th {
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+}
+
+/* Images and diagrams */
+.article-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: var(--spacing-lg) auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--card-bg);
+}
+
+.article-body figure {
+    margin: var(--spacing-lg) 0;
+}
+
+.article-body figure img {
+    margin: 0 auto var(--spacing-xs);
+}
+
+.article-body figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.article-body hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: var(--spacing-xl) 0;
+}
+
+/* Article footer */
+.article-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.article-footer p + p {
+    margin-top: var(--spacing-xs);
+}
+
+.article-footer a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.article-footer a:hover {
+    color: var(--accent-tertiary);
+    text-decoration: underline;
+}
+
+.article-author {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-author a {
+    font-weight: 600;
+}
+
+.article-back {
+    margin-top: var(--spacing-md) !important;
+}
+
+.article-back a {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .page-title,
+    .article-title-main {
+        font-size: 1.75rem;
+    }
+
+    .article-list {
+        grid-template-columns: 1fr;
+    }
+
+    .article-body pre {
+        padding: var(--spacing-sm);
+    }
+}

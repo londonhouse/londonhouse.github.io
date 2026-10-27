@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article class="article">
+    <header class="article-header">
+        <p class="article-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+            {%- if page.last_modified_at %}
+            &middot; Updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>
+            {%- endif %}
+        </p>
+        <h1 class="article-title-main">{{ page.title }}</h1>
+        {%- if page.description %}
+        <p class="article-summary">{{ page.description }}</p>
+        {%- endif %}
+        {%- if page.tags %}
+        <div class="article-tags">
+            {%- for tag in page.tags %}
+            <span class="skill-tag">{{ tag }}</span>
+            {%- endfor %}
+        </div>
+        {%- endif %}
+    </header>
+
+    <div class="article-body">
+        {{ content }}
+    </div>
+
+    <footer class="article-footer">
+        <p class="article-author"><a href="{{ site.author.linkedin }}" target="_blank" rel="noopener author">{{ site.author.name }}</a> is a cloud and ML platform consultant at London House Group, building ML/AI platforms, data platforms, and DataOps on AWS and Snowflake.</p>
+        {%- if page.syndication %}
+        <p class="article-syndication">Also published on
+            {%- for item in page.syndication -%}
+            {%- if forloop.index > 1 %}{% if forloop.last %} and {% else %}, {% endif %}{% endif -%}
+            <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.name }}</a>
+            {%- endfor -%}.
+        </p>
+        {%- endif %}
+        <p class="article-canonical">Originally published at <a href="{{ page.url | absolute_url }}">{{ page.url | absolute_url }}</a></p>
+        <p class="article-back"><a href="{{ '/articles/' | relative_url }}">&larr; All articles</a></p>
+    </footer>
+</article>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.author.name | jsonify }},
+  "url": {{ site.author.url | jsonify }},
+  "jobTitle": "Cloud and ML Platform Consultant",
+  "worksFor": { "@type": "Organization", "name": "London House Group" },
+  "sameAs": {{ site.social.links | jsonify }}
+}
+</script>
