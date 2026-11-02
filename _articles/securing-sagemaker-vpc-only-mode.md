@@ -1,7 +1,7 @@
 ---
 title: "Securing Amazon SageMaker, Part 1: Private Networking with VPC-Only Mode"
 date: 2026-10-18 12:00:00 -0400
-last_modified_at: 2026-10-25
+last_modified_at: 2026-11-01
 seo_title: "Securing SageMaker, Part 1: VPC-Only Mode Networking"
 description: "Keep SageMaker Studio traffic secure: how VPC-only mode, private DNS, and interface VPC endpoints work, with Terraform examples."
 tags: [AWS, SageMaker, Security, Networking, VPC Endpoints, PrivateLink, Terraform]
@@ -176,4 +176,4 @@ S3 is the exception. Because S3 uses a gateway endpoint, `nslookup s3.<region>.a
 
 Now that SageMaker is deployed in VPC-only mode and communicating over the AWS network, next we'll cover securing user authentication.
 
-*Next: Part 2 — Securing SageMaker Domain user authentication (coming soon)*
+*Next: [Part 2 — Securing SageMaker Domain user authentication](/articles/sagemaker-studio-user-authentication/)*

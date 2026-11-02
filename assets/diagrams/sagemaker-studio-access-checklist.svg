@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="840" viewBox="0 0 1600 840" role="img" aria-labelledby="t d">
+  <title id="t">SageMaker Studio access: a five-step build checklist</title>
+  <desc id="d">Five numbered steps, left to right. 1 Map domains: one domain per team. 2 Choose auth: IAM or SSO at domain creation, which can't be changed later. 3 Lock profiles: userId tag plus an aws:userid condition on the sign-in role, IAM-mode only. 4 Lock the door: deny opening Studio unless the request comes through your VPC endpoint, IAM-mode only and recommended with Part 1. 5 Scope the role: an execution role per user profile. Each step lists what you configure, the code that does it, and the gap it closes. A padlock closes a little more at each step.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; fill: #1a1a1a; }
+      .h1 { font-size: 34px; font-weight: 700; }
+      .sub { font-size: 18px; fill: #4a4a4a; }
+      .grp { font-size: 16px; font-weight: 600; fill: #1a5490; }
+      .num { font-size: 24px; font-weight: 700; fill: #ffffff; }
+      .ct { font-size: 22px; font-weight: 700; fill: #0f3d66; }
+      .lbl { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; fill: #0e8f99; }
+      .body { font-size: 18px; }
+      .code { font-family: Consolas, "Cascadia Mono", Menlo, monospace; font-size: 15px; fill: #0f3d66; }
+      .badge { font-size: 14px; font-weight: 600; }
+      .foot { font-size: 15px; fill: #6b6b6b; }
+      .card { fill: #ffffff; stroke: #1a1a1a; stroke-width: 2; }
+      .band { fill: #f1f5f9; }
+      .cbox { fill: #f8f9fa; stroke: #d1d5db; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="840" fill="#ffffff"/>
+
+  <!-- Header -->
+  <text class="h1" x="40" y="62">Locking down SageMaker Studio access, step by step</text>
+  <text class="sub" x="40" y="96">Each step closes one gap. Check off what you've built, and see what's still open.</text>
+
+  <!-- Group brackets -->
+  <path d="M40 148 V136 H1251 V148" fill="none" stroke="#1a5490" stroke-width="2"/>
+  <text class="grp" x="645" y="128" text-anchor="middle">Getting in: who can open Studio, and from where</text>
+  <path d="M1276 148 V136 H1560 V148" fill="none" stroke="#1a5490" stroke-width="2"/>
+  <text class="grp" x="1418" y="128" text-anchor="middle">Once inside: what they can reach</text>
+
+  <!-- Progress line and numbers -->
+  <line x1="182" y1="188" x2="1418" y2="188" stroke="#1a5490" stroke-width="3"/>
+  <path d="M1400 178 L1418 188 L1400 198" fill="none" stroke="#1a5490" stroke-width="3"/>
+  <g>
+    <circle cx="182" cy="188" r="24" fill="#1a5490"/><text class="num" x="182" y="197" text-anchor="middle">1</text>
+    <circle cx="491" cy="188" r="24" fill="#1a5490"/><text class="num" x="491" y="197" text-anchor="middle">2</text>
+    <circle cx="800" cy="188" r="24" fill="#1a5490"/><text class="num" x="800" y="197" text-anchor="middle">3</text>
+    <circle cx="1109" cy="188" r="24" fill="#1a5490"/><text class="num" x="1109" y="197" text-anchor="middle">4</text>
+    <circle cx="1418" cy="188" r="24" fill="#1a5490"/><text class="num" x="1418" y="197" text-anchor="middle">5</text>
+  </g>
+
+  <!-- Card 1 -->
+  <g transform="translate(40,230)">
+    <rect class="card" width="284" height="550" rx="10"/>
+    <path class="band" d="M2 10 A8 8 0 0 1 10 2 H274 A8 8 0 0 1 282 10 V60 H2 Z"/>
+    <text class="ct" x="20" y="40">Map domains</text>
+    <g transform="translate(250,22)" fill="none" stroke="#9aa5b1" stroke-width="3">
+      <path d="M-8 10 V-12 A8 8 0 0 1 8 -12 V-7"/><rect x="-13" y="10" width="26" height="20" rx="4" fill="#ffffff"/>
+    </g>
+    <text class="lbl" x="20" y="95">DO</text>
+    <text class="body" x="20" y="120">One domain per team</text>
+    <text class="body" x="20" y="144">or business unit</text>
+    <text class="lbl" x="20" y="210">CODE</text>
+    <rect class="cbox" x="20" y="222" width="244" height="80" rx="6"/>
+    <text class="code" x="32" y="246">aws_sagemaker_domain</text>
+    <text class="lbl" x="20" y="345">CLOSES</text>
+    <text class="body" x="20" y="370">Teams sharing one</text>
+    <text class="body" x="20" y="394">blast radius</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(349,230)">
+    <rect class="card" width="284" height="550" rx="10"/>
+    <path class="band" d="M2 10 A8 8 0 0 1 10 2 H274 A8 8 0 0 1 282 10 V60 H2 Z"/>
+    <text class="ct" x="20" y="40">Choose auth</text>
+    <g transform="translate(250,22)" fill="none" stroke="#7fa9ad" stroke-width="3">
+      <path d="M-8 10 V-9 A8 8 0 0 1 8 -9 V-4"/><rect x="-13" y="10" width="26" height="20" rx="4" fill="#ffffff"/>
+    </g>
+    <text class="lbl" x="20" y="95">DO</text>
+    <text class="body" x="20" y="120">IAM or SSO, picked</text>
+    <text class="body" x="20" y="144">when you create</text>
+    <text class="body" x="20" y="168">the domain</text>
+    <text class="lbl" x="20" y="210">CODE</text>
+    <rect class="cbox" x="20" y="222" width="244" height="80" rx="6"/>
+    <text class="code" x="32" y="246">auth_mode = "IAM"</text>
+    <text class="lbl" x="20" y="345">CLOSES</text>
+    <text class="body" x="20" y="370">A full redeploy later</text>
+    <text class="body" x="20" y="394">(GovCloud is IAM-only)</text>
+    <rect x="20" y="480" width="200" height="34" rx="17" fill="#fff4e5" stroke="#c77700" stroke-width="1.5"/>
+    <text class="badge" x="120" y="502" text-anchor="middle" fill="#8a5300">⚠ Can't change later</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(658,230)">
+    <rect class="card" width="284" height="550" rx="10"/>
+    <path class="band" d="M2 10 A8 8 0 0 1 10 2 H274 A8 8 0 0 1 282 10 V60 H2 Z"/>
+    <text class="ct" x="20" y="40">Lock profiles</text>
+    <g transform="translate(250,22)" fill="none" stroke="#4fa2aa" stroke-width="3">
+      <path d="M-8 10 V-5 A8 8 0 0 1 8 -5 V1"/><rect x="-13" y="10" width="26" height="20" rx="4" fill="#ffffff"/>
+    </g>
+    <text class="lbl" x="20" y="95">DO</text>
+    <text class="body" x="20" y="120">Tag each profile with</text>
+    <text class="body" x="20" y="144">userId, then add a</text>
+    <text class="body" x="20" y="168">condition on the</text>
+    <text class="body" x="20" y="192">sign-in role</text>
+    <text class="lbl" x="20" y="232">CODE</text>
+    <rect class="cbox" x="20" y="244" width="244" height="80" rx="6"/>
+    <text class="code" x="32" y="268">aws:userid ↔</text>
+    <text class="code" x="32" y="290">ResourceTag/userId</text>
+    <text class="code" x="32" y="312">+ Deny AddTags</text>
+    <text class="lbl" x="20" y="367">CLOSES</text>
+    <text class="body" x="20" y="392">Opening a colleague's</text>
+    <text class="body" x="20" y="416">Studio profile</text>
+    <rect x="20" y="480" width="150" height="34" rx="17" fill="#e8f1fa" stroke="#1a5490" stroke-width="1.5"/>
+    <text class="badge" x="95" y="502" text-anchor="middle" fill="#1a5490">IAM-mode only</text>
+  </g>
+
+  <!-- Card 4 (optional, dashed) -->
+  <g transform="translate(967,230)">
+    <rect class="card" width="284" height="550" rx="10" stroke-dasharray="10 7"/>
+    <path class="band" d="M2 10 A8 8 0 0 1 10 2 H274 A8 8 0 0 1 282 10 V60 H2 Z"/>
+    <text class="ct" x="20" y="40">Lock the door</text>
+    <g transform="translate(250,22)" fill="none" stroke="#2696a0" stroke-width="3">
+      <path d="M-8 10 V-2 A8 8 0 0 1 8 -2 V6"/><rect x="-13" y="10" width="26" height="20" rx="4" fill="#ffffff"/>
+    </g>
+    <text class="lbl" x="20" y="95">DO</text>
+    <text class="body" x="20" y="120">Only open Studio</text>
+    <text class="body" x="20" y="144">through your VPC</text>
+    <text class="body" x="20" y="168">endpoint</text>
+    <text class="lbl" x="20" y="210">CODE</text>
+    <rect class="cbox" x="20" y="222" width="244" height="80" rx="6"/>
+    <text class="code" x="32" y="246">Deny unless</text>
+    <text class="code" x="32" y="268">aws:SourceVpce</text>
+    <text class="code" x="32" y="290">= your endpoint</text>
+    <text class="lbl" x="20" y="345">CLOSES</text>
+    <text class="body" x="20" y="370">Opening Studio from a</text>
+    <text class="body" x="20" y="394">laptop on the internet</text>
+    <rect x="20" y="436" width="150" height="34" rx="17" fill="#e8f1fa" stroke="#1a5490" stroke-width="1.5"/>
+    <text class="badge" x="95" y="458" text-anchor="middle" fill="#1a5490">IAM-mode only</text>
+    <rect x="20" y="480" width="230" height="34" rx="17" fill="#e6f5f6" stroke="#0e8f99" stroke-width="1.5"/>
+    <text class="badge" x="135" y="502" text-anchor="middle" fill="#0b6f77">Recommended with Part 1</text>
+  </g>
+
+  <!-- Card 5 -->
+  <g transform="translate(1276,230)">
+    <rect class="card" width="284" height="550" rx="10"/>
+    <path class="band" d="M2 10 A8 8 0 0 1 10 2 H274 A8 8 0 0 1 282 10 V60 H2 Z"/>
+    <text class="ct" x="20" y="40">Scope the role</text>
+    <g transform="translate(250,22)" stroke="#0e8f99" stroke-width="3">
+      <path d="M-8 10 V2 A8 8 0 0 1 8 2 V10" fill="none"/><rect x="-13" y="10" width="26" height="20" rx="4" fill="#0e8f99"/>
+      <circle cx="0" cy="19" r="2.5" fill="#ffffff" stroke="none"/>
+    </g>
+    <text class="lbl" x="20" y="95">DO</text>
+    <text class="body" x="20" y="120">An execution role per</text>
+    <text class="body" x="20" y="144">user profile or team</text>
+    <text class="lbl" x="20" y="210">CODE</text>
+    <rect class="cbox" x="20" y="222" width="244" height="80" rx="6"/>
+    <text class="code" x="32" y="246">user_settings {</text>
+    <text class="code" x="50" y="268">execution_role</text>
+    <text class="code" x="32" y="290">}</text>
+    <text class="lbl" x="20" y="345">CLOSES</text>
+    <text class="body" x="20" y="370">Studio users reaching</text>
+    <text class="body" x="20" y="394">data their team</text>
+    <text class="body" x="20" y="418">shouldn't</text>
+  </g>
+
+  <!-- Footer -->
+  <text class="foot" x="40" y="815">Securing Amazon SageMaker, Part 2: Domain User Authentication</text>
+  <text class="foot" x="1560" y="815" text-anchor="end">londonhouse.github.io</text>
+</svg>
