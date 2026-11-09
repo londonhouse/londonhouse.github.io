@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="800" viewBox="0 0 480 800" role="img" aria-labelledby="t d">
+  <title id="t">From commit to SageMaker training job: the CI/CD pipeline (stacked for small screens)</title>
+  <desc id="d">Five numbered steps, top to bottom, run by the CI/CD pipeline on the project branch. 1 Lint: run a code linter on the committed code. 2 Unit tests: run any code quality unit tests. 3 Build and test: build the image with the code, then test the entry point. 4 Push to ECR: push the containerized code to Amazon ECR. 5 Start training: call the SageMaker API directly, or your ML workflow orchestrator.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; fill: #1a1a1a; }
+      .h1 { font-size: 27px; font-weight: 700; }
+      .sub { font-size: 16px; fill: #4a4a4a; }
+      .grp { font-size: 15px; font-weight: 600; fill: #1a5490; }
+      .num { font-size: 19px; font-weight: 700; fill: #ffffff; }
+      .ct { font-size: 19px; font-weight: 700; fill: #0f3d66; }
+      .body { font-size: 16px; }
+      .foot { font-size: 14px; fill: #6b6b6b; }
+      .card { fill: #ffffff; stroke: #1a1a1a; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="480" height="800" fill="#ffffff"/>
+
+  <!-- Header -->
+  <text class="h1" x="20" y="44">From commit to training job</text>
+  <text class="sub" x="20" y="74">What the CI/CD pipeline does before</text>
+  <text class="sub" x="20" y="96">SageMaker ever runs the code.</text>
+  <text class="grp" x="20" y="140">CI/CD pipeline on the project branch</text>
+
+  <!-- Spine -->
+  <line x1="50" y1="210" x2="50" y2="672" stroke="#1a5490" stroke-width="3"/>
+
+  <!-- Steps: cards x=90..460, height 100, step 116, from y=160 -->
+  <g transform="translate(0,160)">
+    <circle cx="50" cy="50" r="20" fill="#1a5490"/><text class="num" x="50" y="57" text-anchor="middle">1</text>
+    <rect class="card" x="90" width="370" height="100" rx="10"/>
+    <text class="ct" x="108" y="34">Lint</text>
+    <text class="body" x="108" y="60">Run a code linter on</text>
+    <text class="body" x="108" y="82">the committed code</text>
+  </g>
+  <g transform="translate(0,276)">
+    <circle cx="50" cy="50" r="20" fill="#1a5490"/><text class="num" x="50" y="57" text-anchor="middle">2</text>
+    <rect class="card" x="90" width="370" height="100" rx="10"/>
+    <text class="ct" x="108" y="34">Unit tests</text>
+    <text class="body" x="108" y="60">Run any code quality unit tests</text>
+  </g>
+  <g transform="translate(0,392)">
+    <circle cx="50" cy="50" r="20" fill="#1a5490"/><text class="num" x="50" y="57" text-anchor="middle">3</text>
+    <rect class="card" x="90" width="370" height="100" rx="10"/>
+    <text class="ct" x="108" y="34">Build and test</text>
+    <text class="body" x="108" y="60">Build the image with the code,</text>
+    <text class="body" x="108" y="82">then test the entry point</text>
+  </g>
+  <g transform="translate(0,508)">
+    <circle cx="50" cy="50" r="20" fill="#1a5490"/><text class="num" x="50" y="57" text-anchor="middle">4</text>
+    <rect class="card" x="90" width="370" height="100" rx="10"/>
+    <text class="ct" x="108" y="34">Push to ECR</text>
+    <text class="body" x="108" y="60">Push the containerized code</text>
+    <text class="body" x="108" y="82">to Amazon ECR</text>
+  </g>
+  <g transform="translate(0,624)">
+    <circle cx="50" cy="50" r="20" fill="#0e8f99"/><text class="num" x="50" y="57" text-anchor="middle">5</text>
+    <rect x="90" width="370" height="100" rx="10" fill="#e6f5f6" stroke="#0e8f99" stroke-width="2"/>
+    <text class="ct" x="108" y="34">Start training</text>
+    <text class="body" x="108" y="60">Call the SageMaker API directly,</text>
+    <text class="body" x="108" y="82">or your ML workflow orchestrator</text>
+  </g>
+
+  <!-- Footer -->
+  <text class="foot" x="20" y="776">Securing Amazon SageMaker, Part 3</text>
+  <text class="foot" x="460" y="776" text-anchor="end">londonhouse.github.io</text>
+</svg>

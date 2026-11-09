@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Securing a SageMaker training job: housing, travel, and the network</title>
+  <desc id="d">A grid with rows for code and data and columns for housing (at rest) and travel (in transit). Code housing: a Git repository with repo templates, team-level access, and scanning, not notebooks. Code travel: CI/CD with OIDC, a per-project deploy role that can only upload code and launch isolated jobs. Data housing: Amazon S3 with SSE-KMS and a customer managed key, and an execution role scoped to the job's prefixes. Data travel: HTTPS only, with aws:SecureTransport in bucket policies and inter-container encryption for distributed jobs. Below, a network row: inside your VPC's private subnets, set by VpcConfig, data and code flow from Amazon S3 through the S3 gateway endpoint to the training job. SageMaker downloads them with the execution role before the script starts. The container inside runs with EnableNetworkIsolation set to true and can make no outbound calls.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; fill: #1a1a1a; }
+      .h1 { font-size: 28px; font-weight: 700; }
+      .sub { font-size: 16px; fill: #4a4a4a; }
+      .grp { font-size: 16px; font-weight: 600; fill: #1a5490; }
+      .row { font-size: 20px; font-weight: 700; fill: #ffffff; }
+      .ct { font-size: 18px; font-weight: 700; fill: #0f3d66; }
+      .body { font-size: 15px; }
+      .code { font-family: Consolas, "Cascadia Mono", Menlo, monospace; font-size: 14px; fill: #0f3d66; }
+      .vpc { font-size: 15px; font-weight: 600; fill: #0b6f77; }
+      .foot { font-size: 14px; fill: #6b6b6b; }
+      .card { fill: #ffffff; stroke: #1a1a1a; stroke-width: 2; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a5490"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Header -->
+  <text class="h1" x="40" y="50">Securing a SageMaker training job</text>
+  <text class="sub" x="40" y="78">Where code and data live, how they move, and the network the job runs in.</text>
+
+  <!-- Column headers -->
+  <text class="grp" x="430" y="118" text-anchor="middle">Housing (at rest)</text>
+  <text class="grp" x="925" y="118" text-anchor="middle">Travel (in transit)</text>
+
+  <!-- Row labels -->
+  <rect x="40" y="132" width="130" height="104" rx="10" fill="#1a5490"/>
+  <text class="row" x="105" y="191" text-anchor="middle">Code</text>
+  <rect x="40" y="250" width="130" height="104" rx="10" fill="#1a5490"/>
+  <text class="row" x="105" y="309" text-anchor="middle">Data</text>
+  <rect x="40" y="370" width="130" height="190" rx="10" fill="#0e8f99"/>
+  <text class="row" x="105" y="472" text-anchor="middle">Network</text>
+
+  <!-- Code row -->
+  <g transform="translate(190,132)">
+    <rect class="card" width="480" height="104" rx="10"/>
+    <text class="ct" x="18" y="32">Git repository</text>
+    <text class="body" x="18" y="60">Repo templates, team-level access, and scanning.</text>
+    <text class="body" x="18" y="84">Not code kept in notebooks.</text>
+  </g>
+  <g transform="translate(690,132)">
+    <rect class="card" width="470" height="104" rx="10"/>
+    <text class="ct" x="18" y="32">CI/CD with OIDC</text>
+    <text class="body" x="18" y="60">A per-project deploy role that can only upload</text>
+    <text class="body" x="18" y="84">code and launch isolated training jobs.</text>
+  </g>
+
+  <!-- Data row -->
+  <g transform="translate(190,250)">
+    <rect class="card" width="480" height="104" rx="10"/>
+    <text class="ct" x="18" y="32">Amazon S3</text>
+    <text class="body" x="18" y="60">SSE-KMS with a customer managed key.</text>
+    <text class="body" x="18" y="84">Execution role scoped to the job's S3 prefixes.</text>
+  </g>
+  <g transform="translate(690,250)">
+    <rect class="card" width="470" height="104" rx="10"/>
+    <text class="ct" x="18" y="32">HTTPS only</text>
+    <text class="body" x="18" y="60"><tspan class="code">aws:SecureTransport</tspan> in bucket policies.</text>
+    <text class="body" x="18" y="84">Inter-container encryption for distributed jobs.</text>
+  </g>
+
+  <!-- Network row: your VPC -->
+  <rect x="190" y="370" width="970" height="190" rx="10" fill="#f6fbfb" stroke="#0e8f99" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="vpc" x="1142" y="396" text-anchor="end">Your VPC: private subnets, set with <tspan class="code">VpcConfig</tspan></text>
+
+  <!-- S3 down to the gateway endpoint -->
+  <line x1="300" y1="356" x2="300" y2="424" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(210,428)">
+    <rect width="180" height="110" rx="10" fill="#ffffff" stroke="#1a5490" stroke-width="2"/>
+    <text class="ct" x="90" y="48" text-anchor="middle">S3 gateway</text>
+    <text class="ct" x="90" y="72" text-anchor="middle">endpoint</text>
+  </g>
+
+  <!-- Gateway endpoint to the training job -->
+  <line x1="392" y1="483" x2="440" y2="483" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Training job and isolated container -->
+  <g transform="translate(446,414)">
+    <rect class="card" width="694" height="132" rx="10"/>
+    <text class="ct" x="18" y="32">Training job</text>
+    <text class="body" x="18" y="60">SageMaker downloads data and</text>
+    <text class="body" x="18" y="82">code with the execution role,</text>
+    <text class="body" x="18" y="104">before your script starts.</text>
+    <g transform="translate(270,16)">
+      <rect width="406" height="100" rx="8" fill="#fff4e5" stroke="#c77700" stroke-width="2" stroke-dasharray="6 5"/>
+      <text class="ct" x="16" y="30">Container</text>
+      <text class="code" x="16" y="58">EnableNetworkIsolation = true</text>
+      <text class="body" x="16" y="84">No outbound calls, not even to S3.</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text class="foot" x="40" y="604">Securing Amazon SageMaker, Part 3: Training Jobs, Network Isolation, and Data Access</text>
+  <text class="foot" x="1160" y="604" text-anchor="end">londonhouse.github.io</text>
+</svg>
