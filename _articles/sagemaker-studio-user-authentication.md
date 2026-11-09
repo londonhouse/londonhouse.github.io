@@ -317,3 +317,5 @@ OK, so now you've:
 Users should now feel comfortable working in a secured environment. The next step to address is securing programmatic actions and workflows. After all, once you've finished working in a notebook, you want automated training, promotion, and endpoints.
 
 *Previously: [Part 1 — Private networking with VPC-only mode](/articles/securing-sagemaker-vpc-only-mode/)*
+
+*Next: [Part 3 — Securing SageMaker training jobs](/articles/securing-sagemaker-training-jobs/)*

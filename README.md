@@ -38,6 +38,27 @@ Work-in-progress articles live in `drafts/`. The folder is excluded from the Jek
 build (`_config.yml`) and from git (`.gitignore`), so nothing in it is rendered or
 pushed. When a draft is ready, move it into `_articles/` and follow the steps above.
 
+### Review
+
+Before publishing, run the review process in Claude Code:
+
+1. `/article-review drafts/my-article.md` writes an assessment report and a proposed
+   auto-fix copy to `scratch/` (`<slug>-review.md`, `<slug>.autofix.md`,
+   `<slug>.autofix.diff`). Spelling fixes are applied to the article right away and
+   reported as a count; the original is kept as `scratch/<slug>.prespell.md`. Nothing
+   else in the article is changed until you apply.
+2. Read the report, then `/article-review apply drafts/my-article.md` (optionally
+   "except G4, A2") applies the approved fixes.
+3. `/article-convert drafts/my-article.md` moves the draft to `_articles/<slug>.md` with
+   front matter, removes draft scaffolding, adds series links, and draws the planned
+   diagrams (SVG in `assets/diagrams/`, PNG in `assets/images/`). The article is set to
+   `published: false` and nothing is committed. Run a final `/article-review` on it,
+   then remove `published: false` to publish.
+
+The process, grading rubric, voice profile, and auto-fix tuning log live in
+`.claude/skills/article-review/`. Rejected auto-fixes are recorded in the tuning log
+so later reviews follow them.
+
 ### Syndication
 
 The canonical URL of every article points at this site, so republishing elsewhere
